@@ -1,3 +1,59 @@
+/* Animação de abertura estilo Netflix */
+.tela-abertura {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.8s ease-out;
+}
+
+.logo-abertura {
+    font-size: 5rem;
+    font-weight: 900;
+    color: #e50914;
+    font-family: 'Arial Black', sans-serif;
+    transform: scale(0.8);
+    opacity: 0;
+    animation: animarLogo 2.5s ease-out forwards;
+    text-shadow: 0 0 30px rgba(229, 9, 20, 0.6);
+}
+
+@keyframes animarLogo {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+        letter-spacing: 20px;
+    }
+    40% {
+        transform: scale(1.1);
+        opacity: 1;
+        letter-spacing: 5px;
+    }
+    70% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+        letter-spacing: 2px;
+    }
+}
+
+/* Esconde o conteúdo até terminar a animação */
+header, main, footer {
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+}
+
+/* Estilos gerais do site */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
 
 body { background: #121212; color: white; }

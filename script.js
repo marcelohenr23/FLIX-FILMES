@@ -39,4 +39,20 @@ async function buscarFilme() {
     mostrarFilmes(dados.results);
 }
 
-carregarFilmesPopulares();
+// Controle da animação de abertura
+window.addEventListener('load', () => {
+    const tela = document.getElementById('telaAbertura');
+    const conteudo = document.querySelectorAll('header, main, footer');
+
+    // Tempo total da animação: ~3 segundos
+    setTimeout(() => {
+        tela.style.opacity = '0';
+        setTimeout(() => tela.style.display = 'none', 800);
+
+        // Mostra o site com suavidade
+        conteudo.forEach(el => el.style.opacity = '1');
+    }, 3000);
+
+    // Carrega os filmes após a animação
+    carregarFilmesPopulares();
+});
